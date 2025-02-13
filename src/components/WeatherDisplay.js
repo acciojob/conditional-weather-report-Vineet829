@@ -1,13 +1,18 @@
 import React from "react";
 
 const WeatherDisplay = ({ weather }) => {
-  const temperatureColor = weather.temperature > 20 ? "red" : "blue";
+  const { temperature, conditions } = weather;
+
+  // Determine temperature color
+  const temperatureColor = temperature > 20 ? "red" : "blue";
 
   return (
     <div>
-      <p style={{ color: temperatureColor }}>Temperature: {weather.temperature}</p>
-      <p>Conditions: {weather.conditions}</p>
-      <span>Weather Info</span>
+      <p style={{ fontSize: "18px", margin: "10px 0" }}>
+        Temperature:{" "}
+        <span style={{ color: temperatureColor }}>{temperature}</span>
+      </p>
+      <p style={{ fontSize: "18px", margin: "10px 0" }}>Conditions: {conditions}</p>
     </div>
   );
 };
